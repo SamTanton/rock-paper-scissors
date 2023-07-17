@@ -48,12 +48,3 @@ const playGame = (userChoice) => {
   const winner = determineWinner(userChoice, computerChoice)
     document.querySelector("#outcome").innerText = `You chose ${userChoice}, I chose ${computerChoice}, ${winner}`
 };
-
-document.querySelector("#rock").addEventListener("click", () => {
-    playGame('rock')});
-    
-document.querySelector("#scissors").addEventListener("click", () => {
-    playGame('scissors')});
-    
-    // document.querySelector("#paper").addEventListener("click", () => {
-        // playGame('paper')});
