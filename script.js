@@ -20,26 +20,54 @@ switch (randomNumber) {
     return 'scissors';
     break;
 }};
+// Counter setup
+
+let wins = 0;
+let draws = 0;
+let losses = 0;
+
 // Determine a winner
 const determineWinner = (userChoice, computerChoice) => {
 if (userChoice === computerChoice) {
+  draws = draws + 1
+      document.querySelector("#record").rows[1].cells.item(1).innerHTML = draws
+      tableReveal()
   return(`It's a draw, let's go again!`);}
   else {
     if (userChoice === `rock`)
     {if (computerChoice === 'paper')
-    {return(`I win, better luck next time`)}
-    else {return(`You win!`)}
+    {losses = losses + 1
+      document.querySelector("#record").rows[1].cells.item(2).innerHTML = losses
+      tableReveal()
+      return(`I win, better luck next time`)}
+    else { wins = wins + 1
+      document.querySelector("#record").rows[1].cells.item(0).innerHTML = wins
+      tableReveal()
+      return(`You win!`)}
     }
   
   if (userChoice === `paper`) {
     if (computerChoice === `scissors`) {
+      losses = losses + 1
+      document.querySelector("#record").rows[1].cells.item(2).innerHTML = losses
+      tableReveal()
         return(`I win, better luck next time`)}
-    else {return(`You win!`)}
+    else { wins = wins + 1
+      document.querySelector("#record").rows[1].cells.item(0).innerHTML = wins
+      tableReveal()
+      return(`You win!`)}
   }
     if (userChoice === `scissors`) {
     if (computerChoice === `rock`) {
+      losses = losses + 1
+      document.querySelector("#record").rows[1].cells.item(2).innerHTML = losses
+      tableReveal()
         return(`I win, better luck next time`)}
-    else {return(`You win!`)}
+    else { wins = wins + 1
+          document.querySelector("#record").rows[1].cells.item(0).innerHTML = wins
+          tableReveal()
+          return(`You win!`)
+          }
   }}};
 
 // Game setup
@@ -48,3 +76,8 @@ const playGame = (userChoice) => {
   const winner = determineWinner(userChoice, computerChoice)
     document.querySelector("#outcome").innerText = `You chose ${userChoice}, I chose ${computerChoice}, ${winner}`
 };
+
+//table reveal
+const tableReveal = () => {
+  document.querySelector("#record").style.display = 'table';
+}
