@@ -81,3 +81,25 @@ const playGame = (userChoice) => {
 const tableReveal = () => {
   document.querySelector("#record").style.display = 'table';
 }
+
+// button result coloring setup
+const correctAnswer = (button) => {
+  document.querySelector(button).style.backgroundColor = '#b3f2b3'
+  setTimeout( function() {
+    document.querySelector(button).style.backgroundColor = '#EFEFEF'
+    }, 1000)}
+  
+const wrongAnswer = (button) => {
+  document.querySelector(button).style.backgroundColor = '#f27d7d'
+  setTimeout( function() {
+    document.querySelector(button).style.backgroundColor = '#EFEFEF'
+    }, 1000)}
+
+//rock automatic button coloring setup
+const rockColor = () => {if (userChoice === 'rock' | determineWinner === `You win!`) {
+ correctAnswer('#rock')}
+ if (userChoice === 'rock' | determineWinner === `I win, better luck next time`) {
+  wrongAnswer('#rock')}
+else {
+  console.log('nothing')
+      }}
