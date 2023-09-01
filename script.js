@@ -39,10 +39,12 @@ if (userChoice === computerChoice) {
     {losses = losses + 1
       document.querySelector("#record").rows[1].cells.item(2).innerHTML = losses
       tableReveal()
+      wrongAnswer('#rock')
       return(`I win, better luck next time`)}
     else { wins = wins + 1
       document.querySelector("#record").rows[1].cells.item(0).innerHTML = wins
       tableReveal()
+      correctAnswer('#rock')
       return(`You win!`)}
     }
   
@@ -51,10 +53,12 @@ if (userChoice === computerChoice) {
       losses = losses + 1
       document.querySelector("#record").rows[1].cells.item(2).innerHTML = losses
       tableReveal()
+      wrongAnswer('#paper')
         return(`I win, better luck next time`)}
     else { wins = wins + 1
       document.querySelector("#record").rows[1].cells.item(0).innerHTML = wins
       tableReveal()
+      correctAnswer('#paper')
       return(`You win!`)}
   }
     if (userChoice === `scissors`) {
@@ -62,10 +66,12 @@ if (userChoice === computerChoice) {
       losses = losses + 1
       document.querySelector("#record").rows[1].cells.item(2).innerHTML = losses
       tableReveal()
+      wrongAnswer('#scissors')
         return(`I win, better luck next time`)}
     else { wins = wins + 1
           document.querySelector("#record").rows[1].cells.item(0).innerHTML = wins
           tableReveal()
+          correctAnswer('#scissors')
           return(`You win!`)
           }
   }}};
