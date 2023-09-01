@@ -56,6 +56,20 @@ const wrongAnswer = (button) => {
   }, 1000);
 };
 
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+const disableButtons = () => {
+  rockButton.setAttribute("disabled", "true");
+  paperButton.setAttribute("disabled", "true");
+  scissorsButton.setAttribute("disabled", "true");
+  setTimeout(function () {
+    rockButton.removeAttribute("disabled", "");
+    paperButton.removeAttribute("disabled", "");
+    scissorsButton.removeAttribute("disabled", "");
+  }, 1000);
+};
+
 const outcomes = {
   rock: {
     rock: "draw",
@@ -76,6 +90,7 @@ const outcomes = {
 
 const determineWinner = (userChoice, computerChoice) => {
   tableReveal();
+  disableButtons();
   const outcome = outcomes[userChoice][computerChoice];
   let winner = "outcome";
 
